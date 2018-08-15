@@ -1,0 +1,7 @@
+{
+  "name": "local-message-board",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
