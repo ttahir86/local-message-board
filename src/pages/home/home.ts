@@ -9,7 +9,7 @@ import { Http } from '@angular/http';
 })
 export class HomePage {
   ZOOM_LEVEL = 12;
-  RADIUS = 10;
+  RADIUS = 10; //mph
 
   public user: any = {}
   public map: any = {
