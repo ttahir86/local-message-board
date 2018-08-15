@@ -7,14 +7,18 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  ZOOM_LEVEL = 15;
-  public map: any = {};
+  ZOOM_LEVEL = 12;
+  public map: any = {
+    lat: 5,
+    lng: 5,
+    zoom: this.ZOOM_LEVEL
+  }
   public labelOptions = {
     color: '000000',
     fontFamily: '',
     fontSize: '18px',
     fontWeight: 'bold',
-    text: 'tests ',
+    text: ' ',
   }
 
   constructor(public navCtrl: NavController, private geolocation: Geolocation) {}
@@ -44,6 +48,7 @@ export class HomePage {
 
 
   handleResponse(pos){
+    console.log(pos.coords);
     this.map = {
       lat: pos.coords.latitude,
       lng: pos.coords.longitude,

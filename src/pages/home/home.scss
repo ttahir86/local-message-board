@@ -1,4 +1,6 @@
 page-home {
+    
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
 
     agm-map{
         width: 100%;
@@ -7,4 +9,15 @@ page-home {
         transition: opacity 150ms ease-in
     }
 
+    div{
+        font-family: 'Raleway', sans-serif;
+        
+    }
+
+    ion-content{
+        background-color: black;
+    }
+    button{
+        width: 100%;
+    }
 }

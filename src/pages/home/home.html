@@ -1,17 +1,23 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Local Secret</ion-title>
+    <ion-title>Local Messages</ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  <h3>Secrets Near You</h3>
+  <h3>Messages Near You</h3>
   <agm-map [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom">
       <agm-marker [latitude]="map.lat" [longitude]="map.lng" [label]="labelOptions"></agm-marker>
+      <agm-circle [latitude]="map.lat" [longitude]="map.lng" [circleDraggable]="false" [editable]="false"
+        [fillColor]="'#FF0000'" [radius]="5000">
+      </agm-circle>
   </agm-map>
+  <button ion-button secondary menuToggle button-full>Post</button>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
+
+
