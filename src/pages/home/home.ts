@@ -7,8 +7,26 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  public map: any = {};
+  public labelOptions = {
+    color: 'red',
+    fontFamily: '',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    text: ' ',
+  }
 
+  constructor(public navCtrl: NavController) {
+    this.map = {
+      lat: 40.283927299999995,
+      lng: -74.7044311,
+      zoom: 10
+    }
+  }
+
+  ionViewDidLoad()
+  {
+    
   }
 
 }
