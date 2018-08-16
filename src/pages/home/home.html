@@ -3,21 +3,21 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Local Messages</ion-title>
+    <ion-title>Local Boards</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <h3>Messages Near You</h3>
+  <h3>Message Boards Near You</h3>
   <agm-map [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom">
       <agm-marker [latitude]="map.lat" [longitude]="map.lng" [label]="labelOptions"></agm-marker>
       <agm-circle [latitude]="map.lat" [longitude]="map.lng" [circleDraggable]="false" [editable]="false"
         [fillColor]="'#FF0000'" [radius]="5000">
       </agm-circle>
   </agm-map>
-  <button class="btnCreateBoard"  (click)="createBoard()" ion-button secondary button-full>Create Board</button>
-
+  <button class="btnStartBoard"  (click)="startBoard()" ion-button secondary button-full>Start Board</button>
+  <button class="btnStartBoard"  (click)="findBoard()" ion-button secondary button-full>Find Board</button>
 </ion-content>
 
 

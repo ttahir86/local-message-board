@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Create Message Board</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label clear>Title</ion-label>
+        <ion-input type="text" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>First Message</ion-label>
+        <ion-textarea type="text"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <button class="btnCreateBoard"  (click)="createBoard()" ion-button secondary button-full>Create Message Board</button>
+  </form>
+</ion-content>

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-import { Http } from '@angular/http';
+
+import { CreateBoardPage } from '../create-board/create-board';
+import { Http } from '../../../node_modules/@angular/http';
 
 @Component({
   selector: 'page-home',
@@ -25,10 +27,12 @@ export class HomePage {
     text: ' ',
   }
 
-  constructor(public navCtrl: NavController, private geolocation: Geolocation, private http: Http) {}
+  constructor(public navCtrl: NavController, private geolocation: Geolocation, private http: Http ) {}
 
   ionViewDidLoad(){
+
     this.getUserLocation();
+    
   }
 
 
@@ -57,27 +61,36 @@ export class HomePage {
     this.user = {
       lat: pos.coords.latitude,
       lng: pos.coords.longitude,
+      radius: this.RADIUS
     }
   }
 
 
 
 
-  createBoard() {
-    var link = 'http://localhost:80/local-message-board-api/api.php';
-    var myData = JSON.stringify
+  startBoard() {
+
+    this.navCtrl.push(CreateBoardPage, this.user);
+  }
+
+
+  findBoard(){
+    var link = 'http://localhost:80/local-message-board-api/find-board.php';
+    console.log(this.user.lat);
+    console.log(this.user.lng);
+    var userGeoData = JSON.stringify
     (
       {
         lat: this.user.lat,
         lng: this.user.lng,
-        radius: this.RADIUS
+        radius: this.user.radius,
+        title: "Test Title",
+        message: "test message"
       }
     );
   
-    this.http.post(link, myData).subscribe(data => {
-      //https://stackoverflow.com/questions/39574305/property-body-does-not-exist-on-type-response
-      console.log(data["_body"]);
-      
+    this.http.post(link, userGeoData).subscribe(data => {
+      console.log(JSON.parse(data["_body"]));
     }, error => {
       console.log(error);
     });
