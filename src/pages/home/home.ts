@@ -9,7 +9,7 @@ import { Http } from '@angular/http';
 })
 export class HomePage {
   ZOOM_LEVEL = 12;
-  RADIUS = 10; //mph
+  RADIUS = 10;
 
   public user: any = {}
   public map: any = {
@@ -33,25 +33,20 @@ export class HomePage {
 
 
   getUserLocation() {
-    console.log('getUserLocation() start');
     //let GPSoptions = {timeout: 100000, enableHighAccuracy: false, maximumAge: 0};
     let GPSoptions = { enableHighAccuracy: true, maximumAge: 0 };
-
     this.geolocation.getCurrentPosition(GPSoptions)
       .then((position) => {
-        this.handleResponse(position)
+        this.geolocationCallBack(position)
       })
       .catch((error) => {
         console.log('Error getting location', error);
       },
-
     );
-    console.log('getUserLocation() end');
-
   }
 
 
-  handleResponse(pos){
+  geolocationCallBack(pos){
     console.log(pos.coords);
     this.map = {
       lat: pos.coords.latitude,
@@ -63,15 +58,12 @@ export class HomePage {
       lat: pos.coords.latitude,
       lng: pos.coords.longitude,
     }
-    
-    
   }
 
 
 
 
   createBoard() {
-    // var link = 'http://nikola-breznjak.com/_testings/ionicPHP/api.php';
     var link = 'http://localhost:80/local-message-board-api/api.php';
     var myData = JSON.stringify
     (
@@ -81,11 +73,11 @@ export class HomePage {
         radius: this.RADIUS
       }
     );
-    
-    
+  
     this.http.post(link, myData).subscribe(data => {
-      // this.data.response = data["_body"]; //https://stackoverflow.com/questions/39574305/property-body-does-not-exist-on-type-response
-      console.log(data);
+      //https://stackoverflow.com/questions/39574305/property-body-does-not-exist-on-type-response
+      console.log(data["_body"]);
+      
     }, error => {
       console.log(error);
     });
