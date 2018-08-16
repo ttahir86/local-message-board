@@ -10,8 +10,16 @@ import { Http } from '../../../node_modules/@angular/http';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  ZOOM_LEVEL = 12;
+  ZOOM_LEVEL = 10;
   RADIUS = 10;
+  MAX_DISTANCE_TO_SEARCH = 40 //miles
+  public closestBoards: any = [
+    {latitude: 40, longitude: -75}
+  ]
+
+  public boards: any[] = [];
+  
+
 
   public user: any = {}
   public map: any = {
@@ -51,7 +59,7 @@ export class HomePage {
 
 
   geolocationCallBack(pos){
-    console.log(pos.coords);
+    
     this.map = {
       lat: pos.coords.latitude,
       lng: pos.coords.longitude,
@@ -63,6 +71,10 @@ export class HomePage {
       lng: pos.coords.longitude,
       radius: this.RADIUS
     }
+    
+    
+
+    this.findBoard();
   }
 
 
@@ -76,8 +88,6 @@ export class HomePage {
 
   findBoard(){
     var link = 'http://localhost:80/local-message-board-api/find-board.php';
-    console.log(this.user.lat);
-    console.log(this.user.lng);
     var userGeoData = JSON.stringify
     (
       {
@@ -85,12 +95,18 @@ export class HomePage {
         lng: this.user.lng,
         radius: this.user.radius,
         title: "Test Title",
-        message: "test message"
+        message: "test message",
+        maxDistance: this.MAX_DISTANCE_TO_SEARCH,
       }
     );
   
     this.http.post(link, userGeoData).subscribe(data => {
-      console.log(JSON.parse(data["_body"]));
+      this.closestBoards = JSON.parse(data["_body"]);
+      for (let i in this.closestBoards ) {
+        var lat =  Number(this.closestBoards[i].latitude)
+        var lng =  Number(this.closestBoards[i].longitude)
+        this.boards.push({latitude:lat, longitude: lng})
+     }
     }, error => {
       console.log(error);
     });
