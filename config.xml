@@ -81,7 +81,9 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
-        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="We need your location to find users nearby." />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="We need your location so that we can post your message!" />
     </plugin>
+    <plugin name="cordova-plugin-media-capture" spec="^3.0.2" />
 </widget>

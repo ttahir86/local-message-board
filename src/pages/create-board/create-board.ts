@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '../../../node_modules/@angular/http';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CreateBoardPage page.
@@ -29,8 +30,9 @@ export class CreateBoardPage {
     
   }
 
+
   createBoard(){
-    var link = 'http://localhost:80/local-message-board-api/create-board.php';
+    var link = 'http://localhost:800/local-message-board-api/create-board.php';
     var userGeoData = JSON.stringify
     (
       {

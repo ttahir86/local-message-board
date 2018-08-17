@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -9,19 +9,24 @@
 
 
 <ion-content padding>
+<ion-fab right top>
+  <button color="danger" (click)="startBoard()" ion-fab>
+    <ion-icon  name="md-add"></ion-icon>
+  </button>
+</ion-fab>
   <h3>Message Boards Near You</h3>
   <agm-map [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom">
       <!-- user location marker -->
       <agm-marker [latitude]="user.lat" [longitude]="user.lng" [label]="labelOptions"></agm-marker>
       <agm-circle [latitude]="map.lat" [longitude]="map.lng" [circleDraggable]="false" [editable]="false"
-        [fillColor]="'#FF0000'" [radius]="5000">
+        [fillColor]="'#FF0000'" [radius]="RADIUS">
       </agm-circle>
       
       <!-- message board markers -->
       <agm-marker *ngFor="let board of boards" [latitude]="board.latitude" [longitude]="board.longitude" [label]="labelOptions"></agm-marker>      
   </agm-map>
-  <button class="btnStartBoard"  (click)="startBoard()" ion-button secondary button-full>Start Board</button>
-  <button class="btnStartBoard"  (click)="findBoard()" ion-button secondary button-full>Find Board</button>
+  <button class="btnStartBoard"  color="dark" (click)="goToList()" ion-button secondary button-full>Show List</button>
+  
 </ion-content>
 
 

@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <!-- <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-start></ion-icon>
       {{item.title}}
@@ -20,4 +20,56 @@
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
   </div>
+
+
+
+
+  <ion-card>
+  
+
+    <ion-fab right top>
+      <button (click)="goBack()" ion-fab>
+        <ion-icon name="pin"></ion-icon>
+      </button>
+    </ion-fab>
+  
+    <ion-item>
+      <ion-icon name="football" item-start large></ion-icon>
+      <h2>Museum of Football</h2>
+      <p>11 N. Way St, Madison, WI 53703</p>
+    </ion-item>
+  
+    <ion-item>
+      <ion-icon name="wine" item-start large></ion-icon>
+      <h2>Institute of Fine Cocktails</h2>
+      <p>14 S. Hop Avenue, Madison, WI 53703</p>
+    </ion-item>
+  
+    <ion-item>
+      <span item-start>18 min</span>
+      <span item-start>(2.6 mi)</span>
+      <button ion-button icon-start clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Start
+      </button>
+    </ion-item>
+  
+  </ion-card> -->
+
+
+  <ion-slides pager>
+  
+    <ion-slide style="background-color: #222; border: 2px solid white; border-radius: 20px;">
+      <h2>Slide 1</h2>
+    </ion-slide>
+  
+    <ion-slide style="background-color: blue; border: 2px solid black; border-radius: 20px;">
+      <h2 styel="color: white">Slide 2</h2>
+    </ion-slide>
+  
+    <ion-slide style="background-color: red">
+      <h2>Slide 3</h2>
+    </ion-slide>
+  
+  </ion-slides>
 </ion-content>

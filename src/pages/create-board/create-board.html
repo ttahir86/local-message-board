@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="dark">
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>Create Message Board</ion-title>
+    <ion-title>Post Message</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,10 +15,9 @@
         <ion-input type="text" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>First Message</ion-label>
         <ion-textarea type="text"></ion-textarea>
       </ion-item>
     </ion-list>
-    <button class="btnCreateBoard"  (click)="createBoard()" ion-button secondary button-full>Create Message Board</button>
+    <button class="btnCreateBoard"  color="primary" (click)="createBoard()" ion-button secondary button-full>Post Message</button>
   </form>
 </ion-content>
