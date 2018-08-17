@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Local Boards</ion-title>
+    <ion-title>Local Messages</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
     <ion-icon  name="md-add"></ion-icon>
   </button>
 </ion-fab>
-  <h3>Message Boards Near You</h3>
+  <h3>Messages Near You</h3>
   <agm-map [latitude]="map.lat" [longitude]="map.lng" [zoom]="map.zoom">
       <!-- user location marker -->
       <agm-marker [latitude]="user.lat" [longitude]="user.lng" [label]="labelOptions"></agm-marker>
@@ -25,8 +25,28 @@
       <!-- message board markers -->
       <agm-marker *ngFor="let board of boards" [latitude]="board.latitude" [longitude]="board.longitude" [label]="labelOptions"></agm-marker>      
   </agm-map>
+
   <button class="btnStartBoard"  color="dark" (click)="goToList()" ion-button secondary button-full>Show List</button>
-  
+
+  <!-- post fab-->
+  <ion-fab right top>
+    <button ion-fab color="danger">
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-fab-list side="down">
+      <button (click)="goToVideoPost()" ion-fab>
+        <ion-icon name="videocam"></ion-icon>
+      </button>
+      <button ion-fab>
+        <ion-icon name="images"></ion-icon>
+      </button>
+      <button ion-fab>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
 </ion-content>
 
 

@@ -89,6 +89,10 @@ export class HomePage {
   startBoard() {
     this.navCtrl.push(CreateBoardPage, this.user);
   }
+
+  goToVideoPost(){
+    this.navCtrl.push(ListPage);
+  }
   goToList() {
     let options: NativeTransitionOptions = {
     direction: 'up',

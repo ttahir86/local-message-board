@@ -6,6 +6,10 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from '@agm/core';
+import { MediaCapture } from '@ionic-native/media-capture';
+import { Media } from '@ionic-native/media';
+import { File } from '@ionic-native/file';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -30,7 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyDVW6LSgynAbnYKwBql_oHPmEFrardyyAM'})
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyDVW6LSgynAbnYKwBql_oHPmEFrardyyAM'}),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +49,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
-    NativePageTransitions
+    NativePageTransitions,
+    MediaCapture,
+    Media,
+    File
   ]
 })
 export class AppModule {}

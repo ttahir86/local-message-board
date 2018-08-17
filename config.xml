@@ -86,4 +86,13 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="We need your location so that we can post your message!" />
     </plugin>
     <plugin name="cordova-plugin-media-capture" spec="^3.0.2" />
+    <plugin name="cordova-plugin-media" spec="^5.0.2" />
+    <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <!-- for ios device usage -->
+    <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+        <string>We would like to access your camera for recording</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
+        <string>We would like to access your microphone for recording</string>
+    </edit-config>
 </widget>
